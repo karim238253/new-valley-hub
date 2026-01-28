@@ -6,7 +6,6 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Canvas API](https://img.shields.io/badge/Canvas_API-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![i18n](https://img.shields.io/badge/i18n-Verified-blue?style=for-the-badge)
 
 ---
 
@@ -18,32 +17,39 @@
 
 ## 🔥 Key Features
 
+### ✨ AI-Powered Trip Planner
+**The heart of the experience.** A smart tool that helps users plan their perfect journey.
+* **Personalized Itineraries:** Generates travel plans based on user preferences.
+* **Smart Recommendations:** Suggests best times to visit and routes.
+
+### 🗺️ Interactive Map & Attractions
+* **Visual Exploration:** Explore landmarks, oases, and hidden spots on a dynamic, interactive map.
+* **Curated Listings:** A rich database of historical sites and natural wonders like the White Desert.
+
+### 🛍️ Local Marketplace (Souq)
+* **Authentic Crafts:** A digital market for local artisans to showcase pottery, carpets, and dates.
+* **Support Locals:** Direct connection between tourists and local producers.
+
+### 🏨 Hotels & Accommodation
+* **Stay Finder:** Browse and filter hotels, eco-lodges, and desert camps.
+* **Booking Details:** Detailed information and amenities for every stay.
+
+### 🛠️ Services & Utilities
+* **Travel Essentials:** Find nearby restaurants, transportation hubs, hospitals, and banks.
+* **Emergency Info:** Quick access to police and ambulance contacts.
+
 ### 📸 Digital Souvenir Maker
 A unique, interactive feature allowing travelers to create their own digital memories.
-*   **Custom Canvas Tool:** Users can upload photos or select from high-quality local backgrounds.
-*   **Personalization:** Add custom text with stylized Arabic/English calligraphy fonts.
-*   **Instant Download:** Generate and share high-resolution souvenirs instantly.
-
-### 🌍 Bilingual Support (i18n) & Auto-Translation
-A truly accessible platform for both local and international tourists.
-*   **Full RTL/LTR Support:** Seamless UI flipping between Arabic and English.
-*   **Smart Backend Translation:** Utilizes Django Signals to handle content translation automatically.
+* **Custom Canvas Tool:** Users can upload photos or select from high-quality local backgrounds.
+* **Personalization:** Add custom text with stylized calligraphy fonts.
 
 ### 🏛️ Official Leadership Section
-*   **Dynamic Governor's Message:** A managed section featuring the Governor's vision and biography.
-*   **CMS Controlled:** Fully editable via the custom Django Admin panel specifically designed for non-technical staff.
+* **Governor's Message:** A dedicated section featuring the Governor's vision and biography.
+* **CMS Controlled:** Fully editable content via the custom Django Admin panel.
 
-### 👥 Meet the Team & Team Structure
-*   **Smart Rendering:** Automatically detects and displays social media icons (GitHub, LinkedIn) based on team member links.
-*   **Organizational Chart:** Visual representation of the tourism board structure.
-
-### ✨ Modern UI/UX
-*   **Glassmorphism Design:** Sleek, modern aesthetics using Tailwind CSS.
-*   **Responsive Grids:** Flawless experience across mobile, tablet, and desktop.
-*   **Interactive Animations:** Engaging micro-interactions to delight users.
-
-### 🤖 Smart Admin Panel
-*   **Customized Dashboard:** A clean, intuitive interface for managing tourism data, hotels, and products without writing a single line of code.
+### 👥 Meet the Team
+* **Smart Connect:** Automatically displays team members' social links (GitHub/LinkedIn).
+* **Credits:** Showcasing the developers and creators behind the platform.
 
 ---
 
@@ -51,72 +57,57 @@ A truly accessible platform for both local and international tourists.
 
 | Domain | Technologies |
 | :--- | :--- |
-| **Frontend** | React.js, Tailwind CSS, Axios, i18next (Internationalization) |
-| **Backend** | Django Rest Framework (DRF), Django Modeltranslation, Python |
+| **Frontend** | React.js, Tailwind CSS, Axios, Framer Motion |
+| **Backend** | Django Rest Framework (DRF), Python |
 | **Database** | SQLite (Dev) / PostgreSQL (Prod) |
 | **Tools** | Vite, Postman, Git |
 
 ---
 
-## 🚀 Getting Started
+## 📸 Screenshots
 
-Follow these steps to set up the project locally.
+| Home Page | Trip Planner ✨ |
+| :---: | :---: |
+| ![Home Page](./screenshots/home.png) | ![Trip Planner](./screenshots/trip_planner.png) |
 
-### Prerequisites
-*   Node.js & npm installed
-*   Python 3.8+ installed
-*   Git
+| Interactive Map | Attractions |
+| :---: | :---: |
+| ![Map](./screenshots/map.png) | ![Attractions](./screenshots/attractions.png) |
 
-### Installation
+| Hotels | Local Market 🛍️ |
+| :---: | :---: |
+| ![Hotels](./screenshots/hotels.png) | ![Market](./screenshots/market.png) |
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/yourusername/new-valley-hub.git
-    cd new-valley-hub
-    ```
+| Services | Souvenir Maker |
+| :---: | :---: |
+| ![Services](./screenshots/services.png) | ![Souvenir Maker](./screenshots/souvenir.png) |
 
-2.  **Backend Setup (Django)**
-    Navigate to the backend folder:
-    ```bash
-    cd backend
-    ```
-    Create and activate a virtual environment:
-    ```bash
-    # Windows
-    python -m venv venv
-    .\venv\Scripts\activate
-    ```
-    Install dependencies and migrate database:
-    ```bash
-    pip install -r requirements.txt
-    python manage.py migrate
-    python manage.py runserver
-    ```
-    *The backend runs on `http://localhost:8000`*
-
-3.  **Frontend Setup (React)**
-    Open a new terminal and navigate to the frontend folder:
-    ```bash
-    cd frontend
-    ```
-    Install dependencies and start the dev server:
-    ```bash
-    npm install
-    npm run dev
-    ```
-    *The frontend runs on `http://localhost:5173`*
+| Governor's Section | Team Section |
+| :---: | :---: |
+| ![Governor](./screenshots/governor.png) | ![Team](./screenshots/team.png) |
 
 ---
 
-## 📸 Screenshots
+## 🚀 Getting Started
 
-| Home Page | Governor's Section |
-| :---: | :---: |
-| ![Home Page](./screenshots/home.jpg) | ![Governor Profile](./screenshots/governor.png) |
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/yourusername/new-valley-hub.git](https://github.com/yourusername/new-valley-hub.git)
+    ```
 
-| Souvenir Maker | Team Section |
-| :---: | :---: |
-| ![Souvenir Maker](./screenshots/souvenir.png) | ![Team](./screenshots/team.png) |
+2.  **Run Backend**
+    ```bash
+    cd backend
+    pip install -r requirements.txt
+    python manage.py runserver
+    ```
+
+3.  **Run Frontend**
+    ```bash
+    cd frontend
+    npm install
+    npm run dev
+    ```
 
 ---
 
