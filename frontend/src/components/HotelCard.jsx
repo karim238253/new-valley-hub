@@ -20,14 +20,27 @@ const HotelCard = ({ hotel }) => {
                     <div className="text-sm text-gray-500 mb-2">Price Range: <span className="font-semibold text-green-600">{hotel.price_range}</span></div>
                 </div>
 
-                <a
-                    href={hotel.booking_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
-                >
-                    Book on Booking.com
-                </a>
+                <div className="flex gap-2 mt-auto">
+                    {hotel.google_map_url && (
+                        <a
+                            href={hotel.google_map_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 text-center bg-white border-2 border-green-600 text-green-600 hover:bg-green-50 font-bold py-2 px-2 rounded transition-colors duration-200 flex items-center justify-center gap-2"
+                            title="Get Directions"
+                        >
+                            <span>📍</span> Directions
+                        </a>
+                    )}
+                    <a
+                        href={hotel.booking_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-[2] text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-200"
+                    >
+                        Book Now
+                    </a>
+                </div>
             </div>
         </div>
     );

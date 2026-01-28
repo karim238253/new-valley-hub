@@ -1,0 +1,23 @@
+/* Scoped Font Definitions */
+@font-face {
+    font-family: 'Ancient';
+    src: url('../assets/fonts/Ancient.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Hieroglyphs';
+    src: url('../assets/fonts/Hieroglyphs.otf') format('opentype');
+}
+
+/* Scoped Utility Class */
+.souvenir-font-ancient {
+    font-family: 'Ancient', serif;
+}
+
+.souvenir-font-hieroglyphs {
+    font-family: 'Hieroglyphs', cursive;
+}
+
+.souvenir-font-default {
+    font-family: 'Inter', sans-serif;
+}

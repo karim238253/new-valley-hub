@@ -87,7 +87,7 @@ const MarketplacePage = () => {
                                         {/* Price and Action */}
                                         <div className="flex justify-between items-center mb-4">
                                             <div className="text-2xl font-bold text-green-600">
-                                                ${product.price}
+                                                EGP {product.price}
                                             </div>
                                             <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-semibold shadow-md transition-all duration-300 hover:scale-105">
                                                 Buy Now

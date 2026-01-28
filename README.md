@@ -1,167 +1,123 @@
-# New Valley Hub - Tourism Platform
+# New Valley Hub (بوابة الوادي الجديد) 🌴
+> **"Discover the Magic of Egypt's Hidden Oasis - Digital Tourism Platform."**
 
-A comprehensive web platform for exploring Egypt's New Valley Governorate, featuring attractions, hotels, services, and AI-powered trip planning.
-
-## 🌟 Features
-
-- **29 Attractions** - Historical sites, natural wonders, cultural landmarks
-- **15 Hotels** - From luxury resorts to budget accommodations
-- **22 Services** - Hierarchical directory (Dining, Medical, Emergency, General)
-- **AI Trip Planner** - Generate custom itineraries
-- **Interactive Map** - Explore locations visually
-- **Marketplace** - Local products and crafts
-
-## 🛠️ Tech Stack
-
-### Backend
-- Django 5.x
-- Django REST Framework
-- SQLite database
-- OpenAI API integration
-
-### Frontend
-- React 18+ (Vite)
-- React Router
-- Axios
-- Tailwind CSS
-
-## 📦 Installation
-
-### Prerequisites
-- Python 3.11+
-- Node.js 18+
-- Git
-
-### Backend Setup
-
-```bash
-cd backend
-
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# Windows:
-.\venv\Scripts\activate
-# Mac/Linux:
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run migrations
-python manage.py migrate
-
-# Start development server
-python manage.py runserver
-```
-
-Backend runs at: `http://localhost:8000`
-
-API Docs: `http://localhost:8000/api/`
-
-### Frontend Setup
-
-```bash
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Frontend runs at: `http://localhost:5173`
-
-## 🚀 Quick Start
-
-1. **Clone the repository**
-```bash
-git clone <your-repo-url>
-cd new-valley-hub
-```
-
-2. **Setup and run backend** (see Backend Setup above)
-
-3. **Setup and run frontend** (see Frontend Setup above)
-
-4. **Access the app** at `http://localhost:5173`
-
-## 📱 Mobile App
-
-React Native mobile app available in separate repository: `new-valley-mobile`
-
-## 🗄️ Database
-
-The project uses SQLite with pre-populated data:
-- All images use public Wikimedia Commons URLs
-- No external dependencies for images
-
-## 🌐 API Endpoints
-
-- `GET /api/tourism/attractions/` - List all attractions
-- `GET /api/hospitality/hotels/` - List all hotels
-- `GET /api/services/items/` - List all services
-- `GET /api/services/categories/hierarchy/` - Hierarchical service categories
-- `POST /api/tourism/attractions/generate_plan/` - AI trip planning
-
-## 📝 Project Structure
-
-```
-new-valley-hub/
-├── backend/               # Django backend
-│   ├── tourism/          # Attractions app
-│   ├── hospitality/      # Hotels app
-│   ├── services/         # Services app
-│   ├── marketplace/      # Products app
-│   └── new_valley_hub/   # Main Django project
-├── frontend/             # React frontend
-│   ├── src/
-│   │   ├── pages/       # Page components
-│   │   ├── components/  # Reusable components
-│   │   └── App.jsx      # Main app component
-│   └── public/          # Static assets
-└── README.md
-```
-
-## 🎨 Features Implemented
-
-- ✅ Complete CRUD operations for all models
-- ✅ Responsive design (mobile, tablet, desktop)
-- ✅ Image optimization with public URLs
-- ✅ AI-powered trip planning
-- ✅ Hierarchical service categories
-- ✅ Search and filtering
-- ✅ Interactive mapping
-
-## 🔧 Configuration
-
-### Environment Variables (Optional)
-
-Create `.env` file in backend directory:
-```
-SECRET_KEY=your-secret-key
-DEBUG=True
-OPENAI_API_KEY=your-openai-key  # For AI planner
-```
-
-## 📄 License
-
-This project was created for the New Valley Governorate tourism initiative.
-
-## 👥 Contributing
-
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## 🆘 Support
-
-For issues or questions, please open an issue on GitHub.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Canvas API](https://img.shields.io/badge/Canvas_API-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![i18n](https://img.shields.io/badge/i18n-Verified-blue?style=for-the-badge)
 
 ---
 
-**Built with ❤️ for exploring the New Valley Governorate**
+## 📖 About the Project
+
+**New Valley Hub** is a comprehensive full-stack digital tourism platform dedicated to the New Valley Governorate (Al-Wadi Al-Gadid) in Egypt. Whether exploring the surreal landscapes of the White Desert or the historic oasis towns of Kharga and Dakhla, this platform connects travelers with the rich heritage and hidden gems of the region. Built with modern web technologies, it bridges the gap between digital convenience and authentic local experiences.
+
+---
+
+## 🔥 Key Features
+
+### 📸 Digital Souvenir Maker
+A unique, interactive feature allowing travelers to create their own digital memories.
+*   **Custom Canvas Tool:** Users can upload photos or select from high-quality local backgrounds.
+*   **Personalization:** Add custom text with stylized Arabic/English calligraphy fonts.
+*   **Instant Download:** Generate and share high-resolution souvenirs instantly.
+
+### 🌍 Bilingual Support (i18n) & Auto-Translation
+A truly accessible platform for both local and international tourists.
+*   **Full RTL/LTR Support:** Seamless UI flipping between Arabic and English.
+*   **Smart Backend Translation:** Utilizes Django Signals to handle content translation automatically.
+
+### 🏛️ Official Leadership Section
+*   **Dynamic Governor's Message:** A managed section featuring the Governor's vision and biography.
+*   **CMS Controlled:** Fully editable via the custom Django Admin panel specifically designed for non-technical staff.
+
+### 👥 Meet the Team & Team Structure
+*   **Smart Rendering:** Automatically detects and displays social media icons (GitHub, LinkedIn) based on team member links.
+*   **Organizational Chart:** Visual representation of the tourism board structure.
+
+### ✨ Modern UI/UX
+*   **Glassmorphism Design:** Sleek, modern aesthetics using Tailwind CSS.
+*   **Responsive Grids:** Flawless experience across mobile, tablet, and desktop.
+*   **Interactive Animations:** Engaging micro-interactions to delight users.
+
+### 🤖 Smart Admin Panel
+*   **Customized Dashboard:** A clean, intuitive interface for managing tourism data, hotels, and products without writing a single line of code.
+
+---
+
+## 🛠️ Tech Stack
+
+| Domain | Technologies |
+| :--- | :--- |
+| **Frontend** | React.js, Tailwind CSS, Axios, i18next (Internationalization) |
+| **Backend** | Django Rest Framework (DRF), Django Modeltranslation, Python |
+| **Database** | SQLite (Dev) / PostgreSQL (Prod) |
+| **Tools** | Vite, Postman, Git |
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up the project locally.
+
+### Prerequisites
+*   Node.js & npm installed
+*   Python 3.8+ installed
+*   Git
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/yourusername/new-valley-hub.git
+    cd new-valley-hub
+    ```
+
+2.  **Backend Setup (Django)**
+    Navigate to the backend folder:
+    ```bash
+    cd backend
+    ```
+    Create and activate a virtual environment:
+    ```bash
+    # Windows
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+    Install dependencies and migrate database:
+    ```bash
+    pip install -r requirements.txt
+    python manage.py migrate
+    python manage.py runserver
+    ```
+    *The backend runs on `http://localhost:8000`*
+
+3.  **Frontend Setup (React)**
+    Open a new terminal and navigate to the frontend folder:
+    ```bash
+    cd frontend
+    ```
+    Install dependencies and start the dev server:
+    ```bash
+    npm install
+    npm run dev
+    ```
+    *The frontend runs on `http://localhost:5173`*
+
+---
+
+## 📸 Screenshots
+
+| Home Page | Governor's Section |
+| :---: | :---: |
+| ![Home Page](./screenshots/home.png) | ![Governor Profile](./screenshots/governor.png) |
+
+| Souvenir Maker | Team Section |
+| :---: | :---: |
+| ![Souvenir Maker](./screenshots/souvenir.png) | ![Team](./screenshots/team.png) |
+
+---
+
+Made with ❤️ for **Egypt** 🇪🇬

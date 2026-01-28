@@ -8,6 +8,10 @@ import HotelsPage from './pages/HotelsPage';
 import MapPage from './pages/MapPage';
 import PlannerPage from './pages/PlannerPage';
 import MarketplacePage from './pages/MarketplacePage';
+import SouvenirPage from './pages/SouvenirPage';
+import ContactPage from './pages/ContactPage';
+import OfflineIndicator from './components/OfflineIndicator';
+import SOSButton from './components/SOSButton';
 
 import './index.css'
 
@@ -15,6 +19,8 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
+        <OfflineIndicator />
+        <SOSButton />
         <Navbar />
         <main>
           <Routes>
@@ -25,6 +31,8 @@ function App() {
             <Route path="/map" element={<MapPage />} />
             <Route path="/planner" element={<PlannerPage />} />
             <Route path="/marketplace" element={<MarketplacePage />} />
+            <Route path="/souvenir" element={<SouvenirPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>
 

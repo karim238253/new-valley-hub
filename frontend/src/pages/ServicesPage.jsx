@@ -4,6 +4,7 @@ import axios from 'axios';
 const ServicesPage = () => {
     const [hierarchy, setHierarchy] = useState([]);
     const [services, setServices] = useState([]);
+    const [totalServicesCount, setTotalServicesCount] = useState(0);
     const [selectedParent, setSelectedParent] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -19,6 +20,7 @@ const ServicesPage = () => {
         axios.get('http://127.0.0.1:8000/api/services/items/')
             .then(res => {
                 setServices(res.data);
+                setTotalServicesCount(res.data.length);
                 setLoading(false);
             })
             .catch(err => {
@@ -69,13 +71,13 @@ const ServicesPage = () => {
                         <button
                             onClick={() => filterByParent(null)}
                             className={`p-6 rounded-xl shadow-lg transition-all duration-300 ${selectedParent === null
-                                    ? 'bg-blue-600 text-white scale-105'
-                                    : 'bg-white text-gray-700 hover:bg-blue-50'
+                                ? 'bg-blue-600 text-white scale-105'
+                                : 'bg-white text-gray-700 hover:bg-blue-50'
                                 }`}
                         >
                             <div className="text-3xl mb-2">🌍</div>
                             <div className="font-bold">All Services</div>
-                            <div className="text-sm opacity-75">{services.length} total</div>
+                            <div className="text-sm opacity-75">{totalServicesCount} total</div>
                         </button>
 
                         {hierarchy.map(parent => (
@@ -83,8 +85,8 @@ const ServicesPage = () => {
                                 key={parent.id}
                                 onClick={() => filterByParent(parent.slug)}
                                 className={`p-6 rounded-xl shadow-lg transition-all duration-300 ${selectedParent === parent.slug
-                                        ? 'bg-blue-600 text-white scale-105'
-                                        : 'bg-white text-gray-700 hover:bg-blue-50'
+                                    ? 'bg-blue-600 text-white scale-105'
+                                    : 'bg-white text-gray-700 hover:bg-blue-50'
                                     }`}
                             >
                                 <div className="text-3xl mb-2">

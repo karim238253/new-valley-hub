@@ -21,7 +21,7 @@ const AttractionCard = ({ attraction }) => {
 
                 <div className="flex justify-between items-center text-sm text-gray-500 mt-2">
                     <span>⏱ {attraction.visit_duration_minutes} mins</span>
-                    <span>💰 {parseFloat(attraction.ticket_price) === 0 ? 'Free' : `$${attraction.ticket_price}`}</span>
+                    <span>💰 {parseFloat(attraction.ticket_price) === 0 ? 'Free' : `EGP ${attraction.ticket_price}`}</span>
                 </div>
             </div>
         </div>

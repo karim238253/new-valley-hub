@@ -19,12 +19,21 @@ const PlannerPage = () => {
         });
     };
 
+    const [estimatedCost, setEstimatedCost] = useState(0);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         try {
             const res = await generateItinerary(formData);
-            setItinerary(res.data);
+            // Handle new response structure: { itinerary: [...], total_estimated_cost: X }
+            if (res.data.itinerary) {
+                setItinerary(res.data.itinerary);
+                setEstimatedCost(res.data.total_estimated_cost);
+            } else {
+                // Fallback for backward compatibility if needed, though we changed the backend
+                setItinerary(res.data);
+            }
         } catch (error) {
             console.error("Error generating plan", error);
         } finally {
@@ -34,7 +43,7 @@ const PlannerPage = () => {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">AI Itinerary Planner</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Trip Planner</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Form Section */}
@@ -59,9 +68,9 @@ const PlannerPage = () => {
                                 onChange={e => setFormData({ ...formData, budget: e.target.value })}
                                 className="w-full border p-2 rounded focus:ring-2 focus:ring-orange-500"
                             >
-                                <option value="low">Budget ($)</option>
-                                <option value="medium">Standard ($$)</option>
-                                <option value="high">Luxury ($$$)</option>
+                                <option value="low">Budget (Low)</option>
+                                <option value="medium">Standard (Medium)</option>
+                                <option value="high">Luxury (High)</option>
                             </select>
                         </div>
 
@@ -97,6 +106,20 @@ const PlannerPage = () => {
                     {itinerary ? (
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold mb-4 text-orange-600">Your Recommended Itinerary</h3>
+
+                            {/* Budget Estimation Card */}
+                            <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-5 mb-6 flex items-center justify-between shadow-sm">
+                                <div>
+                                    <h4 className="text-gray-700 font-bold text-lg">Estimated Total Cost</h4>
+                                    <p className="text-xs text-gray-500 mt-1">*Includes estimated accommodation, food, and entry tickets.</p>
+                                </div>
+                                <div className="text-right">
+                                    <span className="block text-3xl font-extrabold text-green-700">
+                                        ≈ {estimatedCost.toLocaleString()} <span className="text-lg">EGP</span>
+                                    </span>
+                                </div>
+                            </div>
+
                             {itinerary.map((day) => (
                                 <div key={day.day} className="bg-white p-6 rounded-lg shadow border-l-4 border-orange-500">
                                     <h4 className="text-xl font-bold mb-4">Day {day.day}</h4>

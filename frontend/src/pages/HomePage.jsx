@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAttractions } from '../services/api';
+import WeatherWidget from '../components/WeatherWidget';
+import TeamSection from '../components/TeamSection';
+import GovernorSection from '../components/GovernorSection';
 
 const HomePage = () => {
     const [topAttractions, setTopAttractions] = useState([]);
+    const [totalAttractions, setTotalAttractions] = useState(0);
 
     useEffect(() => {
         // Fetch top 3 attractions for highlights
         getAttractions()
             .then(res => {
                 setTopAttractions(res.data.slice(0, 3));
+                setTotalAttractions(res.data.length);
             })
             .catch(err => console.error("Error fetching attractions:", err));
     }, []);
@@ -27,6 +32,11 @@ const HomePage = () => {
                     />
                     {/* Gradient Overlay for better text readability */}
                     <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+                </div>
+
+                {/* Weather Widget - Absolute positioned top right */}
+                <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+                    <WeatherWidget />
                 </div>
 
                 {/* Hero Content */}
@@ -50,7 +60,7 @@ const HomePage = () => {
                             to="/planner"
                             className="bg-white hover:bg-gray-100 text-orange-600 px-8 py-4 rounded-full font-bold text-lg shadow-2xl transition-all duration-300 hover:scale-105"
                         >
-                            ✨ AI Planner
+                            ✨ Trip Planner
                         </Link>
                     </div>
 
@@ -129,7 +139,7 @@ const HomePage = () => {
                                                 ⏱ {attraction.visit_duration_minutes} mins
                                             </span>
                                             <span className="flex items-center gap-1 font-semibold text-green-600">
-                                                💰 {parseFloat(attraction.ticket_price) === 0 ? 'Free' : `$${attraction.ticket_price}`}
+                                                💰 {parseFloat(attraction.ticket_price) === 0 ? 'Free' : `EGP ${attraction.ticket_price}`}
                                             </span>
                                         </div>
                                     </div>
@@ -156,16 +166,19 @@ const HomePage = () => {
                             to="/attractions"
                             className="inline-block bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all duration-300 hover:scale-105"
                         >
-                            View All 16 Attractions →
+                            View All {totalAttractions} Attractions →
                         </Link>
                     </div>
                 </div>
             </div>
 
+            {/* Governor Section */}
+            <GovernorSection />
+
             {/* Features Section */}
             <div className="py-16 bg-gray-900 text-white">
                 <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <div className="p-6">
                             <div className="text-5xl mb-4">🗺️</div>
                             <h3 className="text-xl font-bold mb-2">Interactive Map</h3>
@@ -173,7 +186,7 @@ const HomePage = () => {
                         </div>
                         <div className="p-6">
                             <div className="text-5xl mb-4">✨</div>
-                            <h3 className="text-xl font-bold mb-2">AI Planner</h3>
+                            <h3 className="text-xl font-bold mb-2">Trip Planner</h3>
                             <p className="text-gray-400 text-sm">Get personalized itineraries powered by AI</p>
                         </div>
                         <div className="p-6">
@@ -185,6 +198,16 @@ const HomePage = () => {
                             <div className="text-5xl mb-4">🛍️</div>
                             <h3 className="text-xl font-bold mb-2">Local Marketplace</h3>
                             <p className="text-gray-400 text-sm">Shop authentic local products and crafts</p>
+                        </div>
+                        <div className="p-6">
+                            <div className="text-5xl mb-4">📸</div>
+                            <h3 className="text-xl font-bold mb-2">Digital Souvenir Maker</h3>
+                            <p className="text-gray-400 text-sm">Create and personalize your own digital memories from the New Valley's landmarks</p>
+                        </div>
+                        <div className="p-6">
+                            <div className="text-5xl mb-4">👥</div>
+                            <h3 className="text-xl font-bold mb-2">Meet the Team</h3>
+                            <p className="text-gray-400 text-sm">Connect with the creators and developers behind the New Valley Hub</p>
                         </div>
                     </div>
                 </div>
@@ -203,7 +226,7 @@ const HomePage = () => {
                 <div className="relative z-10 text-center max-w-3xl mx-auto text-white">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Adventure?</h2>
                     <p className="text-xl mb-8">
-                        Let our AI create the perfect travel plan tailored just for you
+                        Let our Trip Planner create the perfect travel plan tailored just for you
                     </p>
                     <Link
                         to="/planner"

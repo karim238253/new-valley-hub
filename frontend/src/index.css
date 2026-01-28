@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 @import "tailwindcss";
 
 @source "./src/**/*.{html,js,jsx,ts,tsx}";
+
+.font-arabic {
+    font-family: 'Cairo', sans-serif;
+}
