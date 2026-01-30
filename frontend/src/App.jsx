@@ -10,8 +10,10 @@ import PlannerPage from './pages/PlannerPage';
 import MarketplacePage from './pages/MarketplacePage';
 import SouvenirPage from './pages/SouvenirPage';
 import ContactPage from './pages/ContactPage';
+import SearchResults from './pages/SearchResults';
 import OfflineIndicator from './components/OfflineIndicator';
 import SOSButton from './components/SOSButton';
+import ChatbotWidget from './components/ChatbotWidget';
 
 import './index.css'
 
@@ -21,6 +23,7 @@ function App() {
       <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
         <OfflineIndicator />
         <SOSButton />
+        <ChatbotWidget />
         <Navbar />
         <main>
           <Routes>
@@ -33,6 +36,7 @@ function App() {
             <Route path="/marketplace" element={<MarketplacePage />} />
             <Route path="/souvenir" element={<SouvenirPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/search" element={<SearchResults />} />
           </Routes>
         </main>
 

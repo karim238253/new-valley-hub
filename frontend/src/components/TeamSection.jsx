@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaGlobe, FaInstagram } from 'react-icons/fa';
 import { SiLinktree } from 'react-icons/si';
 
 const TeamSection = () => {
@@ -29,6 +29,8 @@ const TeamSection = () => {
             return { icon: <FaGithub />, text: 'View Code', color: 'bg-gray-800 hover:bg-gray-900' };
         } else if (url.includes('linkedin.com')) {
             return { icon: <FaLinkedin />, text: 'Connect', color: 'bg-blue-600 hover:bg-blue-700' };
+        } else if (url.includes('instagram.com')) {
+            return { icon: <FaInstagram />, text: 'Follow', color: 'bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-500 hover:from-pink-600 hover:via-purple-600 hover:to-yellow-600' };
         } else if (url.includes('linktr.ee')) {
             return { icon: <SiLinktree />, text: 'All Links', color: 'bg-green-500 hover:bg-green-600' };
         } else {
@@ -53,7 +55,7 @@ const TeamSection = () => {
                         const linkProps = getLinkProps(member.profile_url);
 
                         return (
-                            <div key={member.id} className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col items-center p-6 transform hover:-translate-y-1 transition-transform">
+                            <div key={member.id} className="relative z-10 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-100 flex flex-col items-center p-6 transform hover:-translate-y-1 transition-transform">
                                 <div className="w-32 h-32 mb-4 rounded-full overflow-hidden border-4 border-blue-500 shadow-md">
                                     <img
                                         src={member.final_photo?.startsWith('http') ? member.final_photo : `http://127.0.0.1:8000${member.final_photo}`}

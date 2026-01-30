@@ -17,6 +17,13 @@
 
 ## 🔥 Key Features
 
+### 🤖 AI Chatbot - "3m Sa3ed" (عم سعيد)
+**Your Virtual Local Guide.** An intelligent chatbot powered by Google Gemini AI that provides instant assistance.
+* **24/7 Availability:** Get answers about attractions, hotels, and services anytime.
+* **RAG-Enhanced:** Uses Retrieval Augmented Generation to search the local database for accurate, context-aware responses.
+* **Friendly & Engaging:** Features a modern floating button with pulse animations and call-to-action label.
+* **Bilingual Support:** Responds in friendly English with Egyptian Arabic expressions.
+
 ### ✨ AI-Powered Trip Planner
 **The heart of the experience.** A smart tool that helps users plan their perfect journey.
 * **Personalized Itineraries:** Generates travel plans based on user preferences.
@@ -85,6 +92,10 @@ A unique, interactive feature allowing travelers to create their own digital mem
 | Governor's Section | Team Section |
 | :---: | :---: |
 | ![Governor](./screenshots/governor.png) | ![Team](./screenshots/team.png) |
+
+| AI Chatbot - 3m Sa3ed 🤖 | Chatbot Interface |
+| :---: | :---: |
+| ![Chatbot Button](./screenshots/chatbot.png) | ![SOS Botton](./screenshots/SOS.png) |
 
 ---
 
