@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAttractions } from '../services/api';
 import WeatherWidget from '../components/WeatherWidget';
 import TeamSection from '../components/TeamSection';
@@ -8,6 +8,8 @@ import GovernorSection from '../components/GovernorSection';
 const HomePage = () => {
     const [topAttractions, setTopAttractions] = useState([]);
     const [totalAttractions, setTotalAttractions] = useState(0);
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetch top 3 attractions for highlights
@@ -18,6 +20,13 @@ const HomePage = () => {
             })
             .catch(err => console.error("Error fetching attractions:", err));
     }, []);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+        }
+    };
 
     return (
         <div className="flex flex-col">
@@ -65,16 +74,21 @@ const HomePage = () => {
                     </div>
 
                     {/* Smart Search Bar */}
-                    <div className="bg-white/95 backdrop-blur-sm p-2 rounded-full shadow-2xl flex max-w-xl mx-auto">
+                    <form onSubmit={handleSearch} className="bg-white/95 backdrop-blur-sm p-2 rounded-full shadow-2xl flex max-w-xl mx-auto">
                         <input
                             type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="🔍 Where do you want to go?"
                             className="flex-grow px-6 py-3 rounded-l-full focus:outline-none text-gray-700"
                         />
-                        <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-bold transition-colors">
+                        <button
+                            type="submit"
+                            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-bold transition-colors"
+                        >
                             Search
                         </button>
-                    </div>
+                    </form>
                 </div>
 
                 {/* Scroll Indicator */}

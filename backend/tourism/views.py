@@ -89,3 +89,94 @@ class ChatAPIView(APIView):
 
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class SearchAPIView(APIView):
+    """
+    Global Search API - searches across Attractions, Hotels, and Products
+    """
+    def get(self, request):
+        query = request.GET.get('q', '').strip()
+        print(f"Search Request Received: {query}")
+        
+        if not query:
+            return Response({'results': [], 'message': 'Please provide a search query'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        results = []
+        
+        # Search Attractions
+        attractions = Attraction.objects.filter(
+            Q(name__icontains=query) | Q(description__icontains=query)
+        )[:10]
+        
+        for attraction in attractions:
+            # Build absolute URL for image
+            image_url = None
+            if attraction.image:
+                if hasattr(attraction.image, 'url'):
+                    image_url = request.build_absolute_uri(attraction.image.url)
+                else:
+                    # If it's already a string URL, make it absolute
+                    image_url = request.build_absolute_uri(attraction.image)
+            
+            results.append({
+                'type': 'attraction',
+                'id': attraction.id,
+                'name': attraction.name,
+                'description': attraction.description[:150] + '...' if len(attraction.description) > 150 else attraction.description,
+                'image': image_url,
+                'category': attraction.attraction_type,
+            })
+        
+        # Search Hotels
+        hotels = Hotel.objects.filter(
+            Q(name__icontains=query) | Q(description__icontains=query)
+        )[:10]
+        
+        for hotel in hotels:
+            # Build absolute URL for image
+            image_url = None
+            if hotel.image:
+                if hasattr(hotel.image, 'url'):
+                    image_url = request.build_absolute_uri(hotel.image.url)
+                else:
+                    # If it's already a string URL, make it absolute
+                    image_url = request.build_absolute_uri(hotel.image)
+            
+            results.append({
+                'type': 'hotel',
+                'id': hotel.id,
+                'name': hotel.name,
+                'description': hotel.description[:150] + '...' if len(hotel.description) > 150 else hotel.description,
+                'image': image_url,
+                'rating': str(hotel.stars) if hotel.stars else None,
+            })
+        
+        # Search Products
+        products = Product.objects.filter(
+            Q(name__icontains=query) | Q(description__icontains=query)
+        )[:10]
+        
+        for product in products:
+            # Build absolute URL for image
+            image_url = None
+            if product.image:
+                if hasattr(product.image, 'url'):
+                    image_url = request.build_absolute_uri(product.image.url)
+                else:
+                    # If it's already a string URL, make it absolute
+                    image_url = request.build_absolute_uri(product.image)
+            
+            results.append({
+                'type': 'product',
+                'id': product.id,
+                'name': product.name,
+                'description': product.description[:150] + '...' if len(product.description) > 150 else product.description,
+                'image': image_url,
+                'price': str(product.price),
+            })
+        
+        return Response({
+            'results': results,
+            'count': len(results),
+            'query': query
+        }, status=status.HTTP_200_OK)
