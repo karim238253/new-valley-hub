@@ -95,7 +95,7 @@ A unique, interactive feature allowing travelers to create their own digital mem
 
 | AI Chatbot - 3m Sa3ed 🤖 | Chatbot Interface |
 | :---: | :---: |
-| ![Chatbot Button](./screenshots/chatbot.png) | ![Chatbot Chat](./screenshots/chatbot_chat.png) |
+| ![Chatbot Button](./screenshots/chatbot.png) | ![SOS Botton](./screenshots/SOS.png) |
 
 ---
 
