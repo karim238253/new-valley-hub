@@ -57,6 +57,7 @@ const ChatbotWidget = () => {
             {/* Chat Window */}
             <div
                 className={`
+                    pointer-events-auto
                     transition-all duration-300 ease-in-out transform origin-bottom-right
                     ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}
                     bg-white rounded-2xl shadow-2xl w-80 sm:w-96 flex flex-col mb-4 border border-gray-200
