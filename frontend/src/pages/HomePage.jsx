@@ -53,6 +53,9 @@ const HomePage = () => {
     ];
 
     useEffect(() => {
+        // Ensure page title is correct
+        document.title = 'New Valley Hub';
+
         // Fetch top 3 attractions for highlights
         getAttractions()
             .then(res => {
